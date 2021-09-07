@@ -21,7 +21,7 @@ class Recipe: Identifiable, Decodable {
     var highlights:[String]
     var ingredients:[Ingredient]
     var directions:[String]
-    
+   
 }
 
 class Ingredient: Identifiable, Decodable {
