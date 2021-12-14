@@ -32,8 +32,10 @@ struct RecipeHighlights: View {
     }
 }
 
-struct RecipeHighlights_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeHighlights(highlights: ["test1", "test2", "test3"])
-    }
-}
+
+//struct RecipeHighlights_Previews: PreviewProvider {
+  //  static var previews: some View {
+       // RecipeHighlights(highlights: ["test1", "test2", "test3"])
+   // }
+//}
+

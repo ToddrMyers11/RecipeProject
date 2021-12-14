@@ -12,6 +12,8 @@ class Recipe: Identifiable, Decodable {
     var id:UUID?
     var name:String
     var featured:Bool
+    var image2:String
+    var image2Text:String
     var image:String
     var description:String
     var prepTime:String
@@ -31,5 +33,13 @@ class Ingredient: Identifiable, Decodable {
     var num:Int?
     var denom:Int?
     var unit:String?
-    
+   
+}
+
+class Picture: Identifiable, Decodable {
+
+        var id:UUID?
+        var name:String
+        var num:Int?
+        var directions:[String]
 }

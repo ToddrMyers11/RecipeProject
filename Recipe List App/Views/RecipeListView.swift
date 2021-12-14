@@ -28,7 +28,7 @@ struct RecipeListView: View {
                 ScrollView {
                     LazyVStack (alignment: .leading) {
                         ForEach(model.recipes) { r in
-                            
+                          
                             NavigationLink(
                                 destination: RecipeDetailView(recipe:r),
                                 label: {

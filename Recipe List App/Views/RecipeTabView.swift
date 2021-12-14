@@ -10,18 +10,29 @@ import SwiftUI
 struct RecipeTabView: View {
     var body: some View {
         TabView {
+            
+            HomeScreen()
+                .tabItem {
+                    VStack{
+                        Image(systemName: "house.fill")
+                        Text("Home Screen")
+                    
+                } }
                     RecipeFeaturedView()
                         .tabItem {
                             VStack{
-                                Image(systemName: "star.fill")
-                                Text("Featured")
+                                Image(systemName: "heart.fill")
+                                Text("Mamaw's Recipes")
                             
                         } }
+            
+           
+            
                     RecipeListView()
                         .tabItem {
                             VStack{
                                 Image(systemName: "list.bullet")
-                                Text("List")
+                                Text("All Recipes")
                                 
                             }
                             
