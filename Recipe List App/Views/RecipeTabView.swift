@@ -32,7 +32,7 @@ struct RecipeTabView: View {
                         .tabItem {
                             VStack{
                                 Image(systemName: "list.bullet")
-                                Text("All Recipes")
+                                Text("All Family Recipes")
                                 
                             }
                             

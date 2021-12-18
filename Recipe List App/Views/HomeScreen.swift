@@ -4,12 +4,13 @@ import SwiftUI
 struct HomeScreen: View {
     
     //let imageArray: [[String]] = [["MM1", "memo1"], ["MM2", "memo2"], ["MM3", "memo3"]]
-    let imageArray = ["MM1", "MM2", "MM3", "MM4"]
+    let imageArray = ["Easter at Chestnut Acres 2010", "John & Phyllis Wedding Reception 1966", "June & Bobby in Madison 1960", "June & Brothers", "June & Georgie Ravenswood", "June in Old Kitchen 820 Virgina St.", "Junie & Duane in Madison","Junie and Harold in Madison","Junie outside home on Cemetery Hill Oct 1956","Junie, Sandy and Roger with 1956 Plymouth","Todd & Mamaw, Bahamas"]
     
     @EnvironmentObject var model:RecipeModel
-    @State var isDetailViewShowing = false
+    //@State var isDetailViewShowing = false
     @State var tabSelectionIndex = 0
     var body: some View {
+      
         VStack (alignment: .leading) {
        
             Text("Mamaw's Recipes")
@@ -17,11 +18,14 @@ struct HomeScreen: View {
                 .padding(.leading)
                 .padding(.top, 10)
                 .font(.largeTitle)
-            Text("June Harless (3/10/1935 - 8/16/2011) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved eating her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")
+            ScrollView{
+            Text("June Harless (3/21/1935 - 8/16/2013) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved enjoying her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")
                 //.bold()
                 .padding(.leading)
-                .padding(.top, 0)
+                .padding(.bottom, 0)
                 .font(.system(size: 12.0))
+            }.frame(width: 310, height: 130
+                     , alignment: .center)
             
             
             
@@ -41,7 +45,7 @@ struct HomeScreen: View {
                     //recipe card button
                         Button(action: {
                             // Show the recipe detail sheet
-                            self.isDetailViewShowing = true
+                           // self.isDetailViewShowing = true
                         }, label: {
                             // Recipe card
                             ZStack{
@@ -51,10 +55,10 @@ struct HomeScreen: View {
                                 VStack(spacing: 0){
                                     Image(imageArray[index])
                                         .resizable()
-                                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                        .aspectRatio(contentMode: .fit)
                                         .clipped()
                                     Text(imageArray[index])
-                                        .padding(5)
+                                        //.padding(5)
                                         .font(Font.custom("Avenir", size: 15))
                                     
                                 }
@@ -65,7 +69,8 @@ struct HomeScreen: View {
                             .tag(index)
                         
                     .buttonStyle(PlainButtonStyle())
-                    .frame(width: geo.size.width - 40, height: geo.size.height - 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: geo.size.width - 40, height: geo.size.height - 30
+                           , alignment: .center)
                     .cornerRadius(15)
                     .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: -5, y: 5)
                     
@@ -77,8 +82,8 @@ struct HomeScreen: View {
             }
        
             }
-            .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .automatic))
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .never))
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
             
             
             

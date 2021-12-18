@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Junie, Sandy and Roger with 1956 Plymouth.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
