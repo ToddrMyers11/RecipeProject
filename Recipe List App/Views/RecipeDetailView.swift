@@ -77,34 +77,14 @@ struct RecipeDetailView: View {
                 }
                 .padding(.horizontal)
                 
-                // MARK: Divider
-                Divider()
-                
-                // MARK: Second Picture
-                VStack(alignment: .leading) {
-                    Text("Gallery")
-                        .font(Font.custom("Avenir Heavy", size: 16))
-                        .padding([.bottom, .top], 5)
-                    
-                   //* ForEach(0..<recipe.image2.count, id: \.self) { index in
-                        
-                     //   Image(recipe.image2)
-                     //       .resizable()
-                     //       .scaledToFill()
-                     //   .padding(.bottom, 5)
-                     
-                   // }
-                }
-                .padding(.horizontal)
-               
-                
+         
                 
             }
             
         }
-     
     }
-}
+    }
+
 
 struct RecipeDetailView_Previews: PreviewProvider {
     static var previews: some View {

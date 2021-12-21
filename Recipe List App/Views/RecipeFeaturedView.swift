@@ -44,7 +44,7 @@ struct RecipeFeaturedView: View {
                         VStack(spacing: 0){
                             Image(model.recipes[index].image)
                                 .resizable()
-                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                .aspectRatio(contentMode: .fit)
                                 .clipped()
                             Text(model.recipes[index].name)
                                 .padding(5)

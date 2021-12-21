@@ -22,9 +22,9 @@ struct HomeScreen: View {
             Text("June Harless (3/21/1935 - 8/16/2013) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved enjoying her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")
                 //.bold()
                 .padding(.leading)
-                .padding(.bottom, 0)
+                .padding(.bottom, 5)
                 .font(.system(size: 12.0))
-            }.frame(width: 310, height: 130
+            }.frame(width: 375, height: 150
                      , alignment: .center)
             
             
@@ -55,7 +55,7 @@ struct HomeScreen: View {
                                 VStack(spacing: 0){
                                     Image(imageArray[index])
                                         .resizable()
-                                        .aspectRatio(contentMode: .fit)
+                                        .aspectRatio(contentMode: .fill)
                                         .clipped()
                                     Text(imageArray[index])
                                         //.padding(5)
@@ -69,7 +69,7 @@ struct HomeScreen: View {
                             .tag(index)
                         
                     .buttonStyle(PlainButtonStyle())
-                    .frame(width: geo.size.width - 40, height: geo.size.height - 30
+                    .frame(width: geo.size.width - 40, height: geo.size.height - 10
                            , alignment: .center)
                     .cornerRadius(15)
                     .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: -5, y: 5)

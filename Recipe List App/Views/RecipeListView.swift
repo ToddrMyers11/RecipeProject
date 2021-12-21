@@ -19,7 +19,7 @@ struct RecipeListView: View {
             VStack (alignment: .leading) {
                 
                 
-                Text("All Recipes")
+                Text("Family Recipes")
                     .bold()
                     .padding(.top, 40)
                     .font(Font.custom("Avenir Heavy", size: 24))
