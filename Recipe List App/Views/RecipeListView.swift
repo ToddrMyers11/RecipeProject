@@ -47,6 +47,8 @@ struct RecipeListView: View {
                                             .font(Font.custom("Avenir Heavy", size: 16))
                                             RecipeHighlights(highlights: r.highlights)
                                                 .foregroundColor(.black)
+                                                .multilineTextAlignment(.leading)
+                                            
                                         }
                                     }
                                     

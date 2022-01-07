@@ -4,7 +4,7 @@ import SwiftUI
 struct HomeScreen: View {
     
     //let imageArray: [[String]] = [["MM1", "memo1"], ["MM2", "memo2"], ["MM3", "memo3"]]
-    let imageArray = ["Easter at Chestnut Acres 2010", "John & Phyllis Wedding Reception 1966", "June & Bobby in Madison 1960", "June & Brothers", "June & Georgie Ravenswood", "June in Old Kitchen 820 Virgina St.", "Junie & Duane in Madison","Junie and Harold in Madison","Junie outside home on Cemetery Hill Oct 1956","Junie, Sandy and Roger with 1956 Plymouth","Todd & Mamaw, Bahamas"]
+    let imageArray = ["Easter at Chestnut Acres 2010", "John & Phyllis Wedding Reception 1966", "June & Bobby in Madison 1960", "June & Brothers", "June & Georgie in Ravenswood", "June in Old Kitchen 820 Virgina St.", "Junie & Duane in Madison","Junie and Harold in Madison","Junie outside home on Cemetery Hill Oct 1956","Junie, Sandy and Roger with 1956 Plymouth","Todd & Mamaw, Bahamas"]
     
     @EnvironmentObject var model:RecipeModel
     //@State var isDetailViewShowing = false
@@ -24,7 +24,7 @@ struct HomeScreen: View {
                 .padding(.leading)
                 .padding(.bottom, 5)
                 .font(.system(size: 12.0))
-            }.frame(width: 375, height: 150
+            }.frame(width: 368, height: 150
                      , alignment: .center)
             
             
