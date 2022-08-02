@@ -26,7 +26,8 @@ struct RecipeFeaturedView: View {
         GeometryReader { geo in
             TabView (selection: $tabSelectionIndex) {
             //Loop through each recipe
-            ForEach (0..<model.recipes.count)
+
+            ForEach (0..<model.recipes.count, id: \.self)
             {index in
             //Only show those that should be featured
             if model.recipes[index].featured == true {
@@ -81,7 +82,7 @@ struct RecipeFeaturedView: View {
                 
                 Text("Preparation Time:")
                 .font(Font.custom("Avenir Heavy", size: 16))
-                Text(model.recipes[tabSelectionIndex].prepTime)
+//                Text(model.recipes[tabSelectionIndex].prepTime)
             Text("Highlights")
                 .font(Font.custom("Avenir Heavy", size: 16))
                 RecipeHighlights(highlights:

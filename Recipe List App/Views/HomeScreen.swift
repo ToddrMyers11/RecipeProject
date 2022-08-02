@@ -16,7 +16,7 @@ struct HomeScreen: View {
             Text("Mamaw's Recipes")
                 .bold()
                 .padding(.leading)
-                .padding(.top, 10)
+                .padding(.bottom, -5)
                 .font(.largeTitle)
             ScrollView{
             Text("June Harless (3/21/1935 - 8/16/2013) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved enjoying her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")

@@ -12,8 +12,8 @@ class Recipe: Identifiable, Decodable {
     var id:UUID?
     var name:String
     var featured:Bool
-    var image2:String
-    var image2Text:String
+   // var image2:String
+   // var image2Text:String
     var image:String
     var description:String
     var prepTime:String
