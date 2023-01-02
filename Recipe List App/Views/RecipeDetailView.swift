@@ -10,13 +10,13 @@ import SwiftUI
 struct RecipeDetailView: View {
     
     var recipe:Recipe
-   
     
     @State var selectedServingSize = 2
+    @EnvironmentObject var userDefault: UserDefaultClass
     var body: some View {
         
         ScrollView {
-        
+            
             VStack (alignment: .leading) {
                 
                 // MARK: Recipe Image
@@ -24,25 +24,43 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 
-                //MARK: Recipe Title
-                Text(recipe.name)
-                    .padding(.top, 20)
-                    .padding(.leading)
-                    .font(Font.custom("Avenir Heavy", size: 24))
-               
+                HStack {
+                    //MARK: Recipe Title
+                    Text(recipe.name)
+                        .padding(.top, 20)
+                        .padding(.leading)
+                        .font(Font.custom("Avenir Heavy", size: 24))
+                    
+                    Spacer()
+                    
+                    Button {
+                        if checkIfSaved(recipe: recipe){
+                            userDefault.removeRecipe(recipe: recipe)
+                        } else {
+                            userDefault.setRecipe(recipe: recipe)
+                        }
+                        print("UserDefaults:\(userDefault.ownApiRecipe)")
+                    } label: {
+                        Image(systemName: checkIfSaved(recipe: recipe) ? "heart.fill" : "heart")
+                            .font(.title)
+                            .foregroundColor(.red)
+                            .padding(.top, 20)
+                            .padding(.trailing)
+                    }
+                }
                 // MARK: Serving Size Picker
                 VStack (alignment: .leading) {
-                Text("Select your serving size:")
+                    Text("Select your serving size:")
+                        .font(Font.custom("Avenir", size: 15))
+                    Picker("", selection: $selectedServingSize) {
+                        Text("2").tag(2)
+                        Text("4").tag(4)
+                        Text("6").tag(6)
+                        Text("8").tag(8)
+                    }
                     .font(Font.custom("Avenir", size: 15))
-                Picker("", selection: $selectedServingSize) {
-                    Text("2").tag(2)
-                    Text("4").tag(4)
-                    Text("6").tag(6)
-                    Text("8").tag(8)
-                }
-                .font(Font.custom("Avenir", size: 15))
-                .pickerStyle(SegmentedPickerStyle())
-                .frame(width:160)
+                    .pickerStyle(SegmentedPickerStyle())
+                    .frame(width:160)
                 }.padding()
                 
                 
@@ -76,14 +94,26 @@ struct RecipeDetailView: View {
                     }
                 }
                 .padding(.horizontal)
-                
-         
-                
             }
-            
         }
     }
+    
+   private func checkIfSaved(recipe: Recipe) -> Bool{
+        
+        if userDefault.ownApiRecipe.contains(where: {$0.name == recipe.name}){
+            return true
+        }else {
+            return false
+        }
+//        if UserDefaultClass.instance.ownApiRecipe.contains(where: { $0.id == recipe.id }) {
+//            return true
+//               // print("1 exists in the array")
+//           } else {
+//               return false
+//               // print("1 does not exists in the array")
+//           }
     }
+}
 
 
 struct RecipeDetailView_Previews: PreviewProvider {

@@ -11,50 +11,26 @@ struct RecipeListView: View {
     
     // Reference the view model
     @EnvironmentObject var model:RecipeModel
-    
-    var body: some View {
-        
+    @EnvironmentObject var apiVM: ApiViewModel
+    @State var query = ""
+    var body: some View { 
         NavigationView {
-            
-            VStack (alignment: .leading) {
-                
-                
+            VStack (alignment: .leading, spacing: 10) {
                 Text("Family Recipes")
                     .bold()
-                    .padding(.top, 40)
+                //.padding(.top, 40)
                     .font(Font.custom("Avenir Heavy", size: 24))
-                
-                
                 ScrollView {
                     LazyVStack (alignment: .leading) {
-                        ForEach(model.recipes) { r in
-                          
+                        ForEach(model.recipes) { recipe in
+                            
                             NavigationLink(
-                                destination: RecipeDetailView(recipe:r),
+                                destination: RecipeDetailView(recipe:recipe),
                                 label: {
-                                    
                                     // MARK: Row item
-                                    HStack(spacing: 20.0) {
-                                        Image(r.image)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .clipped()
-                                            .cornerRadius(5)
-                                        VStack(alignment: .leading) {
-                                        Text(r.name)
-                                            .foregroundColor(.black)
-                                            .font(Font.custom("Avenir Heavy", size: 16))
-                                            RecipeHighlights(highlights: r.highlights)
-                                                .foregroundColor(.black)
-                                                .multilineTextAlignment(.leading)
-                                            
-                                        }
-                                    }
-                                    
-                                })
-                            
-                            
+                                    RecipeRowItem(recipe: recipe)
+                                }
+                            )
                         }
                     }
                 }
@@ -64,7 +40,27 @@ struct RecipeListView: View {
         }
     }
 }
-
+struct RecipeRowItem:View{
+    @State var recipe: Recipe
+    var body: some View{
+        HStack(spacing: 20.0) {
+            Image(recipe.image)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50, alignment: .center)
+                .clipped()
+                .cornerRadius(5)
+            VStack(alignment: .leading) {
+                Text(recipe.name)
+                    .foregroundColor(.black)
+                    .font(Font.custom("Avenir Heavy", size: 16))
+                RecipeHighlights(highlights: recipe.highlights)
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.leading)
+            }
+        }
+    }
+}
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
         RecipeListView()

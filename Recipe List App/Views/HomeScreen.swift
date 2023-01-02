@@ -10,42 +10,38 @@ struct HomeScreen: View {
     //@State var isDetailViewShowing = false
     @State var tabSelectionIndex = 0
     var body: some View {
-      
+        
         VStack (alignment: .leading) {
-       
+            
             Text("Mamaw's Recipes")
                 .bold()
                 .padding(.leading)
                 .padding(.bottom, -5)
                 .font(.largeTitle)
             ScrollView{
-            Text("June Harless (3/21/1935 - 8/16/2013) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved enjoying her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")
+                Text("June Harless (3/21/1935 - 8/16/2013) was one of the greatest cooks to come out of Boone County, WV. From a young age she raised her brothers and then her own family without many resources. She loved her children, grandchildren and great-grandchildren with great passion and food was her language of love. Her favorite part of cooking was seeing those she loved enjoying her food. This is a collection of recipes that she perfected over her 60 years of cooking. She used simple ingredients to make mouth-watering meals that we will always remember. The smell of her recipes still fill our homes today. ")
                 //.bold()
-                .padding(.leading)
-                .padding(.bottom, 5)
-                .font(.system(size: 12.0))
-            }.frame(width: 368, height: 150
-                     , alignment: .center)
-            
-            
-            
+                    .padding(.leading)
+                    .padding(.bottom, 5)
+                    .font(.system(size: 12.0))
+            }.frame(width: 368, height: 150, alignment: .center)
             
             GeometryReader { geo in
                 TabView (selection: $tabSelectionIndex) {
-                //Loop through each recipe
+                    //Loop through each recipe
                     ForEach(0..<imageArray.count, id: \.self) { index in
-                
-                 //       VStack {
-                  //          List(list, id: \.self) { item in
-                //                Text("item = \(item)")
-              //              }
-                   
                         
-                
-                    //recipe card button
+                        //       VStack {
+                        //          List(list, id: \.self) { item in
+                        //                Text("item = \(item)")
+                        //              }
+                        
+                        
+                        
+                        //recipe card button
                         Button(action: {
                             // Show the recipe detail sheet
-                           // self.isDetailViewShowing = true
+                            // self.isDetailViewShowing = true
                         }, label: {
                             // Recipe card
                             ZStack{
@@ -58,47 +54,26 @@ struct HomeScreen: View {
                                         .aspectRatio(contentMode: .fill)
                                         .clipped()
                                     Text(imageArray[index])
-                                        //.padding(5)
+                                    //.padding(5)
                                         .font(Font.custom("Avenir", size: 15))
-                                    
                                 }
-                                
                             }
-                            
                         })
-                            .tag(index)
+                        .tag(index)
                         
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(width: geo.size.width - 40, height: geo.size.height - 10
-                           , alignment: .center)
-                    .cornerRadius(15)
-                    .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: -5, y: 5)
-                    
-                    
-                    
-                
-               
-            
-            }
-       
-            }
-            .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .never))
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(width: geo.size.width - 40, height: geo.size.height - 10
+                               , alignment: .center)
+                        .cornerRadius(15)
+                        .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: -5, y: 5)
+                        
+                    } 
+                }
+                .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .never))
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            }
+        }
     }
-}
-}
 }
 
 struct HomeScreen_Previews: PreviewProvider {
