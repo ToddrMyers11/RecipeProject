@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ApiRecipeDetailView: View {
     @EnvironmentObject var apiVM: ApiViewModel
@@ -46,23 +47,6 @@ struct ApiRecipeDetailView: View {
                         .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight*0.25)
                 }
             )
-            .overlay(alignment: .topTrailing) {
-                Button {
-                    if checkIfApiSaved(recipe: result){
-                        userDefault.removeApiRecipe(recipe: result)
-                    } else {
-                        userDefault.setApiRecipe(recipe: result)
-                    }
-                    print("UserDefaults:\(userDefault.recipeApiRecipe)")
-                } label: {
-                    Image(systemName: checkIfApiSaved(recipe: result) ? "heart.fill" : "heart")
-                        .font(.title)
-                        .foregroundColor(.red)
-                        .padding(.top, 20)
-                        .padding(.trailing)
-                }
-
-            }
         }
     }
     private func checkIfApiSaved(recipe: Result) -> Bool{
@@ -82,10 +66,27 @@ struct ApiRecipeDetailView: View {
     }
     private var HederTitelView: some View {
         VStack {
-            Text(result.title)
-                .font(Font.custom("Avenir", size: 25))
-                .bold()
-                .padding(.top, 10)
+            HStack{
+                Text(result.title)
+                    .font(Font.custom("Avenir", size: 25))
+                    .bold()
+                    .padding(.top, 10)
+                Spacer()
+                Button {
+                    if checkIfApiSaved(recipe: result){
+                        userDefault.removeApiRecipe(recipe: result)
+                    } else {
+                        userDefault.setApiRecipe(recipe: result)
+                    }
+                    print("UserDefaults:\(userDefault.recipeApiRecipe)")
+                } label: {
+                    Image(systemName: checkIfApiSaved(recipe: result) ? "heart.fill" : "heart")
+                        .font(.title)
+                        .foregroundColor(.red)
+                        .padding(.top, 20)
+                        .padding(.trailing)
+                }
+            }
         }
     }
     private var IngredientsView: some View{
@@ -94,9 +95,15 @@ struct ApiRecipeDetailView: View {
                 .font(Font.custom("Avenir Heavy", size: 16))
                 .padding([.bottom, .top], 5)
             ForEach(apiVM.apiCurrentIngredients?.ingredients ?? [], id:\.id) { item in
-                HStack{
+                HStack(spacing:4){
                     Image(systemName: "circle.fill")
                         .font(.caption2)
+                    if let amount = item.amount, let us = amount.us, let value = us.value{
+                        Text("\(preciseRound(value, precision:.hundredths).clean)")
+                        if let unit = us.unit{
+                            Text(unit)
+                        }
+                    }
                     Text(item.name ?? "")
                 }
             }
