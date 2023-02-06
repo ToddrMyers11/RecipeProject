@@ -31,6 +31,7 @@
 		FA6EF6A1290B21BC0006CFB2 /* EnumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF6A0290B21BC0006CFB2 /* EnumModel.swift */; };
 		FA6EF6A3290B22E00006CFB2 /* ApiHandlingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF6A2290B22E00006CFB2 /* ApiHandlingModel.swift */; };
 		FA89C4882908792500A71D46 /* ApiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89C4872908792500A71D46 /* ApiViewModel.swift */; };
+		FAD60FF3298FEA79005C97A9 /* PreciseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD60FF2298FEA79005C97A9 /* PreciseRound.swift */; };
 		FAE08DC629467928004C7097 /* UserDefaultClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE08DC529467928004C7097 /* UserDefaultClass.swift */; };
 		FAE30B30292158040076B6AF /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE30B2F292158040076B6AF /* FilterModel.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		FA6EF6A0290B21BC0006CFB2 /* EnumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumModel.swift; sourceTree = "<group>"; };
 		FA6EF6A2290B22E00006CFB2 /* ApiHandlingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHandlingModel.swift; sourceTree = "<group>"; };
 		FA89C4872908792500A71D46 /* ApiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewModel.swift; sourceTree = "<group>"; };
+		FAD60FF2298FEA79005C97A9 /* PreciseRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseRound.swift; sourceTree = "<group>"; };
 		FAE08DC529467928004C7097 /* UserDefaultClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultClass.swift; sourceTree = "<group>"; };
 		FAE30B2F292158040076B6AF /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				34D5B70826EA221A0091C43F /* Rational.swift */,
 				FA6EF69E290B1E300006CFB2 /* AppConstant.swift */,
 				FA2CEAB229185122004701A7 /* Extensions.swift */,
+				FAD60FF2298FEA79005C97A9 /* PreciseRound.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				831EE6C625B0E0A200BACCDD /* RecipeDetailView.swift in Sources */,
 				FA2CEAB629185587004701A7 /* ApiRecipeDetailView.swift in Sources */,
 				FA2CEAAF291842E6004701A7 /* ApiRecipeListView.swift in Sources */,
+				FAD60FF3298FEA79005C97A9 /* PreciseRound.swift in Sources */,
 				FA6EF6A1290B21BC0006CFB2 /* EnumModel.swift in Sources */,
 				34E17F7926EAEFF3009C826D /* RecipeHighlights.swift in Sources */,
 				34D5B70926EA221A0091C43F /* Rational.swift in Sources */,
