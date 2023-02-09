@@ -31,6 +31,7 @@
 		FA6EF6A1290B21BC0006CFB2 /* EnumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF6A0290B21BC0006CFB2 /* EnumModel.swift */; };
 		FA6EF6A3290B22E00006CFB2 /* ApiHandlingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EF6A2290B22E00006CFB2 /* ApiHandlingModel.swift */; };
 		FA89C4882908792500A71D46 /* ApiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89C4872908792500A71D46 /* ApiViewModel.swift */; };
+		FAC2593C2995833200C9F8A5 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2593B2995833200C9F8A5 /* FavoriteView.swift */; };
 		FAD60FF3298FEA79005C97A9 /* PreciseRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD60FF2298FEA79005C97A9 /* PreciseRound.swift */; };
 		FAE08DC629467928004C7097 /* UserDefaultClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE08DC529467928004C7097 /* UserDefaultClass.swift */; };
 		FAE30B30292158040076B6AF /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE30B2F292158040076B6AF /* FilterModel.swift */; };
@@ -63,6 +64,7 @@
 		FA6EF6A0290B21BC0006CFB2 /* EnumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumModel.swift; sourceTree = "<group>"; };
 		FA6EF6A2290B22E00006CFB2 /* ApiHandlingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHandlingModel.swift; sourceTree = "<group>"; };
 		FA89C4872908792500A71D46 /* ApiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewModel.swift; sourceTree = "<group>"; };
+		FAC2593B2995833200C9F8A5 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		FAD60FF2298FEA79005C97A9 /* PreciseRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseRound.swift; sourceTree = "<group>"; };
 		FAE08DC529467928004C7097 /* UserDefaultClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultClass.swift; sourceTree = "<group>"; };
 		FAE30B2F292158040076B6AF /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				349BE0B826D56881003A6D9F /* RecipeTabView.swift */,
 				34E17F7826EAEFF3009C826D /* RecipeHighlights.swift */,
 				FA2CEAAE291842E6004701A7 /* ApiRecipeListView.swift */,
+				FAC2593B2995833200C9F8A5 /* FavoriteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				FA2CEABA29186625004701A7 /* ApiRecipeInstructionModel.swift in Sources */,
 				FAE30B30292158040076B6AF /* FilterModel.swift in Sources */,
 				831EE69D25B0C85E00BACCDD /* Recipe.swift in Sources */,
+				FAC2593C2995833200C9F8A5 /* FavoriteView.swift in Sources */,
 				FA2CEAB329185122004701A7 /* Extensions.swift in Sources */,
 				FA6EF6A3290B22E00006CFB2 /* ApiHandlingModel.swift in Sources */,
 				831EE6C625B0E0A200BACCDD /* RecipeDetailView.swift in Sources */,
@@ -435,8 +439,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codewithchris.Recipe-List-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,8 +464,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codewithchris.Recipe-List-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

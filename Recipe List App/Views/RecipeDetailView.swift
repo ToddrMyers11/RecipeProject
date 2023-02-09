@@ -41,7 +41,7 @@ struct RecipeDetailView: View {
                         }
                         print("UserDefaults:\(userDefault.ownApiRecipe)")
                     } label: {
-                        Image(systemName: checkIfSaved(recipe: recipe) ? "heart.fill" : "heart")
+                        Image(systemName: checkIfSaved(recipe: recipe) ? "star.fill" : "star")
                             .font(.title)
                             .foregroundColor(.red)
                             .padding(.top, 20)

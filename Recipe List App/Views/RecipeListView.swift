@@ -52,10 +52,10 @@ struct RecipeRowItem:View{
                 .cornerRadius(5)
             VStack(alignment: .leading) {
                 Text(recipe.name)
-                    .foregroundColor(.black)
+                    .foregroundColor(.textColor)
                     .font(Font.custom("Avenir Heavy", size: 16))
                 RecipeHighlights(highlights: recipe.highlights)
-                    .foregroundColor(.black)
+                    .foregroundColor(.textColor)
                     .multilineTextAlignment(.leading)
             }
         }

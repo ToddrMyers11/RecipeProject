@@ -14,14 +14,14 @@ struct RecipeTabView: View {
                 .tabItem {
                     VStack{
                         Image(systemName: "house.fill")
-                        Text("Home Screen")
+                        Text("Home")
                     }
                 }
             RecipeFeaturedView()
                 .tabItem {
                     VStack{
                         Image(systemName: "heart.fill")
-                        Text("Mamaw's Recipes")
+                        Text("Mamaw")
                         
                     }
                 }
@@ -29,7 +29,7 @@ struct RecipeTabView: View {
                 .tabItem {
                     VStack{
                         Image(systemName: "list.bullet")
-                        Text("Family Recipes")
+                        Text("Family")
                         
                     }
                 }
@@ -37,16 +37,16 @@ struct RecipeTabView: View {
                 .tabItem {
                     VStack{
                         Image(systemName: "book.fill")
-                        Text("Recipe Book")
+                        Text("Recipe")
                     }
                 }
-//            Text("Favorites")
-//                .tabItem {
-//                    VStack{
-//                        Image(systemName: "star.fill")
-//                        Text("Favorites")
-//                    }
-//                }
+            FavoriteView()
+                .tabItem {
+                    VStack{
+                        Image(systemName: "star.fill")
+                        Text("Favs")
+                    }
+                }
                 
         }
         .environmentObject(RecipeModel())

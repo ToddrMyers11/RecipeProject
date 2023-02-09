@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Recipe
-struct Recipe: Identifiable, Codable {
+struct Recipe: Identifiable, Codable, Hashable {
     let id = UUID().uuidString
     let name: String
     let featured: Bool
@@ -27,7 +27,7 @@ struct Recipe: Identifiable, Codable {
 }
 
 // MARK: - Ingredient
-struct Ingredient: Identifiable, Codable {
+struct Ingredient: Identifiable, Codable, Hashable {
     let id = UUID().uuidString
     let name: String
     let num: Int?

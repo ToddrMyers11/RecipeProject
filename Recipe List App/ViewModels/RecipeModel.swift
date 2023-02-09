@@ -10,12 +10,16 @@ import Foundation
 
 class RecipeModel: ObservableObject {
     
-    @Published var recipes = [Recipe]()
-    
+    // Perform any updates when these properties changes
+    @Published var recipes = [Recipe](){
+        didSet { findFeaturedRecipes() }
+    }
+    @Published var featuredRecipes:[Recipe] = []
     init() {
         
         // Create an instance of data service and get the data
-        self.recipes = DataService.getLocalData()  
+        self.recipes = DataService.getLocalData()
+        
     }
     
     static func getPortion(ingredient:Ingredient, recipeServings:Int, targetServings:Int) -> String {
@@ -77,5 +81,14 @@ class RecipeModel: ObservableObject {
         }
         
         return portion
+    }
+    
+    private func findFeaturedRecipes(){
+        for recipe in recipes{
+            if recipe.featured == true{
+                featuredRecipes.append(recipe)
+            }
+        }
+        //print("Featured: \(featuredRecipes)")
     }
 }
