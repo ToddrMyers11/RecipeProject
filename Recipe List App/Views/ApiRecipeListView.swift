@@ -11,20 +11,21 @@ struct ApiRecipeListView: View {
     @EnvironmentObject var apiVM: ApiViewModel
     @EnvironmentObject var userDefault: UserDefaultClass
     @State var selectedTab:RecipeTab = .search
-    @State var selectedFavoriteTab: FavouriteTab = .mamawS
+    
     @State var isFiltering = false
     
     var body: some View {
         ZStack{
             VStack(alignment: .leading,spacing: 0){
                 Header
-                TopTabBar
-                    .frame(maxWidth: .infinity, alignment: .center)
-                if selectedTab == .search{
-                    SearchView
-                } else {
-                    FavouriteView
-                }
+                SearchView
+//                TopTabBar
+//                    .frame(maxWidth: .infinity, alignment: .center)
+//                if selectedTab == .search{
+//                    SearchView
+//                } else {
+//                    FavouriteView
+//                }
             }
             .navigationBarHidden(true)
             .padding(.leading)
@@ -65,19 +66,6 @@ struct ApiRecipeListView: View {
             .padding()
     }
     
-    /// Top Tab Bar
-    private var TopFavoriteTabBar: some View{
-        ZStack{
-            //RoundedRectangle(cornerRadius: 10)
-            HStack(spacing: 0){
-                FavoriteTopTab(tab: .mamawS, selectedTab: $selectedFavoriteTab)
-                FavoriteTopTab(tab: .recipeBook, selectedTab: $selectedFavoriteTab)
-            }
-        }
-        //.frame(minWidth: 260, maxWidth: 300, maxHeight: 36)
-            //.foregroundColor(.red)
-            .padding()
-    }
     
     /// Search bar and search result view
     private var SearchView: some View{
@@ -93,7 +81,7 @@ struct ApiRecipeListView: View {
                 }, label: {
                     Image(systemName: "magnifyingglass.circle")
                         .font(.title)
-                        .foregroundColor(.black)
+                        .foregroundColor(.textColor)
                 })
                 
                 Button(action: {
@@ -102,7 +90,7 @@ struct ApiRecipeListView: View {
                 }, label: {
                     Image(systemName: "slider.horizontal.3")
                         .font(.title)
-                        .foregroundColor(.black)
+                        .foregroundColor(.textColor)
                 })
             }
             .padding()
@@ -131,7 +119,7 @@ struct ApiRecipeListView: View {
                                     .cornerRadius(5)
                                 
                                 Text(result.title)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.textColor)
                                     .font(Font.custom("Avenir Heavy", size: 16))
                                     .multilineTextAlignment(.leading)
                             }
@@ -194,12 +182,12 @@ struct ApiRecipeListView: View {
                                 }, label: {
                                     Image(systemName: "xmark")
                                         .font(.headline)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.textColor)
                                 })
                             }
                             Text("Filter")
                                 .font(.headline)
-                                .foregroundColor(.black)
+                                .foregroundColor(.textColor)
                                 .bold()
                         }
                         .padding()
@@ -242,60 +230,6 @@ struct ApiRecipeListView: View {
                 })
         }
     }
-    
-    /// User's favourite view
-    private var FavouriteView: some View{
-        VStack(alignment: .center, spacing: 10){
-            TopFavoriteTabBar
-            if selectedFavoriteTab == .mamawS {
-                MamawsFavoriteRecipe
-            } else {
-                RecipeBookFavoriteRecipe
-            }
-        }
-    }
-    
-    private var MamawsFavoriteRecipe: some View{
-        ScrollView{
-            LazyVStack (alignment: .leading) {
-                ForEach(userDefault.ownApiRecipe, id: \.id){ recipe in
-                    NavigationLink(
-                        destination: RecipeDetailView(recipe:recipe),
-                        label: {
-                            // MARK: Row item
-                            RecipeRowItem(recipe: recipe)
-                        }
-                    )
-                }
-            }
-        }
-    }
-    private var RecipeBookFavoriteRecipe: some View{
-        ScrollView {
-            LazyVStack(alignment: .leading){
-                ForEach(userDefault.recipeApiRecipe, id: \.id) { result in
-                    NavigationLink(destination: ApiRecipeDetailView(result: result)) {
-                        HStack{
-                            AsyncImage(url:URL(string: result.image))
-                                .frame(width: 50, height: 50)
-                                .clipped()
-                                .cornerRadius(5)
-                            
-                            Text(result.title)
-                                .foregroundColor(.black)
-                                .font(Font.custom("Avenir Heavy", size: 16))
-                                .multilineTextAlignment(.leading)
-                        }
-                    }
-                }
-               // NextAndPrevButton
-            }
-            
-        }
-        .padding(.horizontal)
-        .padding(.bottom, 10)
-
-    }
 }
 
 struct FilterToggle:View{
@@ -325,24 +259,6 @@ struct PickerTopTab: View{
     }
 }
 
-struct FavoriteTopTab: View{
-    @State var tab: FavouriteTab
-    @Binding var selectedTab: FavouriteTab
-    var body: some View{
-        Button(action: {
-            selectedTab = tab
-        }, label: {
-            VStack(alignment: .center, spacing: 4){
-               
-                Text(tab.rawValue)
-                    .foregroundColor(.black)
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 1)
-                    .foregroundColor(tab == selectedTab ? .yellow : .clear)
-            }
-        })
-    }
-}
 struct ApiRecipeListView_Previews: PreviewProvider {
     static var previews: some View {
         ApiRecipeListView()

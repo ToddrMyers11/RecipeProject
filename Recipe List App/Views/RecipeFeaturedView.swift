@@ -26,10 +26,10 @@ struct RecipeFeaturedView: View {
                 TabView (selection: $tabSelectionIndex) {
                     //Loop through each recipe
                     
-                    ForEach (0..<model.recipes.count, id: \.self)
+                    ForEach (0..<model.featuredRecipes.count, id: \.self)
                     {index in
                         //Only show those that should be featured
-                        if model.recipes[index].featured == true {
+//                        if model.featuredRecipes[index].featured == true {
                             
                             //recipe card button
                             Button(action: {
@@ -42,26 +42,22 @@ struct RecipeFeaturedView: View {
                                         .foregroundColor(.white)
                                     
                                     VStack(spacing: 0){
-                                        Image(model.recipes[index].image)
+                                        Image(model.featuredRecipes[index].image)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .clipped()
-                                        Text(model.recipes[index].name)
+                                        Text(model.featuredRecipes[index].name)
                                             .padding(5)
                                         .font(Font.custom("Avenir", size: 15))  }
                                 }
                             })
                             .tag(index)
-                            .sheet(isPresented: $isDetailViewShowing) {
-                                // Show the recipe detail view
-                                RecipeDetailView(recipe: model.recipes[index])
-                            }
                             .buttonStyle(PlainButtonStyle())
                             .frame(width: geo.size.width - 40, height: geo.size.height - 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .cornerRadius(15)
                             .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: -5, y: 5)
                             //recipe card
-                        }
+//                        }
                     }
                 }
                 .tabViewStyle(PageTabViewStyle.init(indexDisplayMode: .automatic))
@@ -74,10 +70,14 @@ struct RecipeFeaturedView: View {
                 //                Text(model.recipes[tabSelectionIndex].prepTime)
                 Text("Highlights")
                     .font(Font.custom("Avenir Heavy", size: 16))
-                RecipeHighlights(highlights: model.recipes[tabSelectionIndex].highlights)
+                RecipeHighlights(highlights: model.featuredRecipes[tabSelectionIndex].highlights)
                 
             }
             .padding([.leading, .bottom])
+        }
+        .sheet(isPresented: $isDetailViewShowing) {
+            // Show the recipe detail view
+            RecipeDetailView(recipe: model.featuredRecipes[tabSelectionIndex])
         }
         .onAppear(perform: {
             setFeaturedIndex()
@@ -85,7 +85,7 @@ struct RecipeFeaturedView: View {
     }
         func setFeaturedIndex() {
         // Find index of the first recipe that is featured
-           var index = model.recipes.firstIndex {(recipe) -> Bool in
+           var index = model.featuredRecipes.firstIndex {(recipe) -> Bool in
                 return recipe.featured
         }
             tabSelectionIndex = index ?? 0
