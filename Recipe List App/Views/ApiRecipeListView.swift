@@ -41,7 +41,7 @@ struct ApiRecipeListView: View {
     private var Header: some View{
         VStack(alignment: .center){
             if selectedTab == .search{
-                Text("Search")
+                Text("Search thousands of on-line recipes")
                     .bold()
                 //.padding(.top, 40)
                     .font(Font.custom("Avenir Heavy", size: 24))

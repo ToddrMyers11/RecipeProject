@@ -19,6 +19,6 @@ enum RecipeTab:String{
 }
 
 enum FavouriteTab: String {
-    case mamawS = "Mamaw's Recipe"
+    case mamawS = "Mamaw's Recipes"
     case recipeBook = "Recipe Book"
 }

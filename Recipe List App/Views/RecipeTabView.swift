@@ -37,7 +37,7 @@ struct RecipeTabView: View {
                 .tabItem {
                     VStack{
                         Image(systemName: "book.fill")
-                        Text("Recipe")
+                        Text("Book")
                     }
                 }
             FavoriteView()
